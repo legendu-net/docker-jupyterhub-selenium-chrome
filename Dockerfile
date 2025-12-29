@@ -6,7 +6,7 @@ FROM dclong/jupyterhub
 
 RUN curl -s -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
-    && apt-get update -y \
+    && apt-get -y update \
     && apt-get -y install xvfb google-chrome-stable unzip
 
 RUN CHROME_MAJOR_VERSION=$(google-chrome --version | sed -E "s/.* ([0-9]+)(\.[0-9]+){3}.*/\1/") \
